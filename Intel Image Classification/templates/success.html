@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Results Page</title>
+
+        <style>
+			.content {
+			          max-width: 1500px;
+			          margin: auto;
+			         }
+			.bg-img{
+				width: 100%;
+				height: 100vh;
+				background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)), url('static/css/bg1.jpg');
+				background-size: cover;
+				background-position: center;
+			       }	
+	
+
+        <style type="text/css">
+            th{
+                text-align: Center;
+                font-size: 30px;
+            }
+
+            td{
+                text-align: Center;
+                font-size: 30px;
+            }
+            img{
+                border: 2px solid #000000;
+               }
+        </style>
+        </style>
+    </head>
+    <body>
+        <div class="bg-img">
+        <div class = "second-main" style = "height: 100% , width : 100%;">
+            <nav>
+                <ul style = "padding-right: 2%;" class = "main-nav">
+                    <h4><li><a href ="/"><font color= #FF6600 style = "text-shadow: 3px 3px #F0E68C; font-size:30px">Return to Home Page</font></a></li></h4>                
+                </ul>
+               
+            </nav>
+            <div class = "header">
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <h3 class="header-text" style = "text-align: center; color: Aqua; font-size:60px; text-shadow: 2px 2px #0000FF">The uploaded image is displayed below:</h3><br><br>
+                </row>
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <img class = "result-img" src={{url_for('static', filename = 'uploads/'+ img)}} width="300" height="300"/><br><br>
+                </row>
+            </div>
+
+            <div class = "info">
+            
+                <row style = "width: 100% ; display: flex; justify-content: center;">
+                    <h3 class = "header-text" style = "text-align: center; color: Green; font-size:60px; text-shadow: 2px 2px #FFD700">Model's Prediction is as follows:</h3><br><br>
+                </row>
+                <row style = "width: 100%; display: flex; justify-content: center;">
+                    <table class="table-bordered text-dark table-custom" background="static/css/leaf.jpg" style="width:600px; height:300px; border: 1px #A52A2A">
+                        <tr style="color:Red; font-size:30px; text-shadow: 2px 2px #FFD700; text-align:center">
+                            <th>RANK</th>
+                            <th>CLASS</th>
+                            <th>PROBABILITY</th>
+                        </tr>
+                        <tr style="color:DarkMagenta; font-size:40px; text-shadow: 2px 2px #00FF00">
+                            <td><b>1st</b></td>
+                            <td><b>{{ predictions.class1 }}</b></td>
+                            <td><b>{{ predictions.prob1 }} %</b></td>
+                          </tr>
+                          <tr style="color:DarkMagenta; font-size:40px; text-shadow: 2px 2px #00FF00">
+                            <td><b>2nd</b></td>
+                            <td><b>{{ predictions.class2 }}</b></td>                                                         
+                            <td><b>{{ predictions.prob2 }} %</b></td>                                                      
+                        </tr>                                                                                                               
+                        <tr style="color:DarkMagenta; font-size:40px; text-shadow: 2px 2px #00FF00">
+                            <td><b>3rd<b></td>
+                            <td><b>{{ predictions.class3 }}</b></td>
+                            <td><b>{{ predictions.prob3 }} %</b></td>
+                          </tr>
+                    </table>
+                </row>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

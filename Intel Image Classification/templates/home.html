@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet" type='text/css'>
+        <title>Multiclass Image Classification WebApp</title>
+        <meta name="keywords" content="cutom file input, styling, label, cross-browser, accessible, input type file" />
+		
+		<style>
+			.content {
+			  max-width: 1500px;
+			  margin: auto;
+			  }
+			.bg-img{
+				width: 100%;
+				height: 100vh;
+				background-image:linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)), url('static/css/nature.jpg');
+				background-size: cover;
+				background-position: center;
+			}
+			
+		</style>
+
+
+    </head>
+	
+    <body>
+	<div class="bg-img">
+	<div class="content">
+        <div class = "index-main">
+
+        <div style = "width : 100%; padding-top : 5%;">
+            <div class = "header-content">
+                 <h1 style = "text-align: center; color: Indigo; font-size:70px; text-shadow: 3px 3px #FF00FF"><span class="header-content-text"><b><u>Multiclass Image Classifier</u></b></span></h1><br>
+                 <h4 style = "text-align: center; color: Black; font-size:40px; text-shadow: 1.5px 1.5px #FFFFFF"><span class="header-content-text"><b>This is a Web Application which takes in an image as the input and classifies it against 6 different categories. (Refer to NOTE)</b></span></h4><br>
+            </div>
+        </div>
+
+        <div class="upload-section">
+
+            <div class="upload-file">
+              <h4 style = "color: Teal; font-size:30px; text-shadow: 2px 2px #00FFFF"><p><i>Click on the "Choose File" button to upload a file:</i></p></h4>
+                <form class = "file-form" action="/success" method="post", enctype="multipart/form-data">
+                    <input class="file-form-input" type="file" style="font-size: 15pt; height:50px; width:400px;", name = "file" />
+                    <button class="btn btn-success btn-lg" style="color: white; text-shadow: 1px 1px #C0C0C0"><b>Upload Image & Predict</b></button>
+                </form>
+            </div>
+
+            <div class="uploadOR">
+                <h3 style = "text-align: center; color: Navy; font-size:30px; text-shadow: 2px 2px #0099FF"><span><b>OR</b></span></h3><br>
+            </div>
+
+            <div class="upload-link">
+              <h4 style = "color: Teal; font-size:30px; text-shadow: 2px 2px #00FFFF"><p><i>Paste an image URL to predict its class:</i></p></h4>
+                <form class = "link-form" action="/success" method="post", enctype="multipart/form-data">
+                    <input class="link-form-input" type="text" style="font-size: 15pt; height:40px; width:400px;", maxlength="1000" , name = "link" placeholder="Paste the image URL (not the site address)"/>
+                    <button class="btn btn-success btn-lg" style="color: white; text-shadow: 1px 1px #C0C0C0"><b>Predict Image</b></button><br><br> 
+                </form>
+            </div>
+            <div class = "header-content-sub">
+                    <p style = "text-align: center; margin-top: 25px; color: Red; font-size:25px; text-shadow: 1px 1px #FFFF00" class="header-content-info"><b>{{error}}</b></p>
+            </div>
+        </div>
+
+        <div class = "footer">
+            <div class = "header-content-sub">
+                    <p style = "text-align: center; color: Teal; font-size:30px; text-shadow: 2px 2px #00FF00" class="header-content-info"><b><i><u>NOTE</u> : The model was trained on Intel Image Classification Dataset and the model only performs better when the following image categories are provided as input:</i></b></p>
+            </div>
+            <div class = "header-content-sub">
+                    <p style = "text-align: center; color: Fuchsia; font-size:30px; text-shadow: 2px 2px #ADFF2F" class="header-content-info"><b>['Building', 'Forest', 'Glacier', 'Mountain', 'Sea', 'Street']</b></p>
+            </div>
+        </div>
+	     </div>  
+	</div>			 
+	</div>	 
+    </body>
+</html>
